@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2020_01_17_171233) do
     t.string "name"
     t.float "cost"
     t.string "country_of_origin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
