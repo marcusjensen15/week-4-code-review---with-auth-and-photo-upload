@@ -10,7 +10,7 @@
 <p>There are no products yet</p>
 <% end %>
 
-<!-- made in amercica is an experiment -->
+<!-- made in amercica works -->
 
 <h1>Made in america</h1>
 
@@ -23,6 +23,20 @@
 <% else %>
 <p>There are no products made in america</p>
 <% end %>
+
+ <!-- <p>testing most recent products</p> -->
+
+ <h1>Our newest products</h1>
+
+ <% if @products.mostrecent.any? %>
+ <ul>
+   <% @products.mostrecent.each do |product| %>
+   <li>  <%= link_to product.name, product_path(product)%> </li>
+   <% end %>
+ </ul>
+ <% else %>
+ <p>There are no recent products</p>
+ <% end %>
 
 
 <p><%= link_to "Create new product", new_product_path %></p>
