@@ -37,7 +37,7 @@ class ReviewsController < ApplicationController
   end
 
   def update
-    # Code for updating an album goes here.
+    # breaking when we try to update with a number out of range, might be the same for review length. likely will need to add && to if statement making sure rating and length of review are within range
     @review = Review.find(params[:id])
       if @review.update(review_params)
         redirect_to product_review_path(@review.product)
