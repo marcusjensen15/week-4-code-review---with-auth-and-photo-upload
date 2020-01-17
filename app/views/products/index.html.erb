@@ -24,7 +24,6 @@
 <p>There are no products made in america</p>
 <% end %>
 
- <!-- <p>testing most recent products</p> -->
 
  <h1>Our newest products</h1>
 
@@ -37,6 +36,12 @@
  <% else %>
  <p>There are no recent products</p>
  <% end %>
+
+<!-- <p>testing highest reviewed product </p> -->
+
+<h1>Our highest reviewed product is:</h1>
+
+<% @products.mostreviewed.name%>
 
 
 <p><%= link_to "Create new product", new_product_path %></p>

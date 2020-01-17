@@ -32,6 +32,7 @@ class ProductsController < ApplicationController
   def show
     # Code for showing a single album goes here.
     @product = Product.find(params[:id])
+    # binding.pry
     render :show
   end
 

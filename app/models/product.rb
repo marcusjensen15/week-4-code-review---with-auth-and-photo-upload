@@ -5,7 +5,7 @@ class Product < ApplicationRecord
 
   scope :usa, -> { where(country_of_origin: "United States") }
 
-  scope :mostreviewed, -> { where(country_of_origin: "United States") }
+  scope :mostreviewed, -> { order(self.reviews.length).reverse.first(1) }
 
   scope :mostrecent, -> { order(created_at: :desc).first(3) }
 
