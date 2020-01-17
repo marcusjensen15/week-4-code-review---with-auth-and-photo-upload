@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
+  scope :usa, -> { where(country_of_origin: "USA") }
+
   before_save :capitalize
   #these validates are new
   validates :name, presence: true
