@@ -1,7 +1,14 @@
 class Product < ApplicationRecord
   has_many :reviews, dependent: :destroy
-  #this before save is new
+
   before_save :capitalize
+  #these validates are new
+  validates :name, presence: true
+  validates :country_of_origin, presence: true
+  validates :cost, presence: true
+
+
+
 
   #this capitalize method is new
   def capitalize
