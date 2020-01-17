@@ -10,4 +10,19 @@
 <p>There are no products yet</p>
 <% end %>
 
+<!-- made in amercica is an experiment -->
+
+<h1>Made in america</h1>
+
+<% if @products.usa.any? %>
+<ul>
+  <% @products.usa.each do |product| %>
+  <li>  <%= link_to product.name, product_path(product)%> </li>
+  <% end %>
+</ul>
+<% else %>
+<p>There are no products made in america</p>
+<% end %>
+
+
 <p><%= link_to "Create new product", new_product_path %></p>

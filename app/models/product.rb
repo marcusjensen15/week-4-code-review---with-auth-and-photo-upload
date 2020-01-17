@@ -1,7 +1,15 @@
 class Product < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
-  scope :usa, -> { where(country_of_origin: "USA") }
+  #not sure if any of these scopes work
+
+  scope :usa, -> { where(country_of_origin: "United States") }
+
+  scope :mostreviewed, -> { where(country_of_origin: "United States") }
+
+  scope :mostrecent, -> { order(created_at: :desc) }
+
+
 
   before_save :capitalize
   #these validates are new
