@@ -5,7 +5,7 @@ class Product < ApplicationRecord
 
   scope :usa, -> { where(country_of_origin: "United States") }
 
-  scope :mostreviewed, -> { order(self.reviews.length).reverse.first(1) }
+  # scope :mostreviewed, -> { order(self.reviews.length).reverse.first(1) }
 
   scope :mostrecent, -> { order(created_at: :desc).first(3) }
 
@@ -29,6 +29,17 @@ class Product < ApplicationRecord
   def capitalize
     self.name = self.name.titleize()
     self.country_of_origin = self.country_of_origin.titleize()
+  end
+
+#below method is used on the entire class Product and will return the most reviewed product
+  def mostreviewed
+    @oink = self.all
+    arrayofobjects = []
+    class Productx
+
+    end
+
+
   end
 
   #dont get rid of this end below

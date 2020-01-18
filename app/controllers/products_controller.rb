@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    # Code for creating a new album goes here.z
+    # Code for creating a new album goes here
     @product = Product.new(product_params)
     if @product.save
       flash[:notice] = "Product successfully added!"
