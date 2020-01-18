@@ -41,11 +41,13 @@ class ReviewsController < ApplicationController
   def update
     # breaking when we try to update with a number out of range, might be the same for review length. likely will need to add && to if statement making sure rating and length of review are within range.
     @review = Review.find(params[:id])
+    @product = Product.find(params[:product_id])
+
 
     #proposed fix below. added key and statements, isn't fixing it
 
       if @review.update(review_params) && review_params[:rating].to_i > 0 && review_params[:rating].to_i < 5 && review_params[:content_body].length > 50 && review_params[:content_body].length < 250
-
+        #changed from review path to reviews path
         redirect_to product_review_path(@review.product)
       else
         render :edit

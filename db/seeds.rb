@@ -27,14 +27,3 @@ end
 end
 
 p "Created #{Product.count} products and #{Review.count} reviews! "
-
-# t.column(:author, :string)
-# t.column(:content_body, :string)
-# t.column(:rating, :integer)
-# t.column(:product_id, :integer)
-
-#
-# t.column(:name , :string)
-# t.column(:cost , :float)
-# t.column(:country_of_origin , :string)
-# t.timestamps()
