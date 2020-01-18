@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
   def index
     # Code for listing all albums goes here.
     @products = Product.all
+
     render :index
   end
 
@@ -17,6 +18,8 @@ class ProductsController < ApplicationController
     # Code for creating a new album goes here.
     @product = Product.new(product_params)
     if @product.save
+      flash[:notice] = "Product successfully added!"
+
       redirect_to products_path
     else
       render :new
@@ -32,7 +35,6 @@ class ProductsController < ApplicationController
   def show
     # Code for showing a single album goes here.
     @product = Product.find(params[:id])
-    # binding.pry
     render :show
   end
 

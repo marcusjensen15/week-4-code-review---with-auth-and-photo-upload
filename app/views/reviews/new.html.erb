@@ -1,5 +1,8 @@
 <h1>Add a new Review:</h1>
 
+<%= render "layouts/errors", :object => @review %>
+
+
 <%= form_for [@product, @review] do |f| %>
   <%= f.label :author %>
   <%= f.text_field :author %>
