@@ -31,15 +31,19 @@ class Product < ApplicationRecord
     self.country_of_origin = self.country_of_origin.titleize()
   end
 
-#below method is used on the entire class Product and will return the most reviewed product
-  def mostreviewed
+#below method is used on the entire class Product and will return the most reviewed product.
+
+
+  def self.mostreviewed
     @oink = self.all
-    arrayofobjects = []
-    class Productx
-
+    productx = []
+    @oink.each do |product|
+      productx.push({:name => product.name, :rev_freq => product.reviews.length})
     end
-
-
+    # beef = productx.sort_by {|obj| obj.rev_freq}
+    # beef
+    result = productx.sort_by { |hsh| hsh[:rev_freq] }
+    result.last[:name]
   end
 
   #dont get rid of this end below

@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
   def index
     # Code for listing all albums goes here.
     @products = Product.all
-    binding.pry
+    @mostreviewed = Product.mostreviewed
     render :index
   end
 
