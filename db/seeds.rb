@@ -5,3 +5,36 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Product.destroy_all
+
+Review.destroy_all
+
+
+50.times do |index|
+
+  @product = Product.create!({name: Faker::Food.spice,
+                  cost: rand(50),
+                  country_of_origin: "fun"})
+
+5.times do |index|
+  Review.create!({author: Faker::Food.spice,
+                  content_body: "lajsdfljadslfjaldjf;lakjdfl;kasdjflkajsdf;lkajsdfl;kajsdfl;ajksdf;lkjasdkl;fjasl;dfjaskl;dfjals;kdjflasjdf;laksdjflakjsdflkajsdfl;jas",
+                  rating: 4,
+                  product_id: @product.id})
+
+end
+end
+
+p "Created #{Product.count} products and #{Review.count} reviews! "
+
+# t.column(:author, :string)
+# t.column(:content_body, :string)
+# t.column(:rating, :integer)
+# t.column(:product_id, :integer)
+
+#
+# t.column(:name , :string)
+# t.column(:cost , :float)
+# t.column(:country_of_origin , :string)
+# t.timestamps()

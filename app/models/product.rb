@@ -1,11 +1,9 @@
 class Product < ApplicationRecord
   has_many :reviews, dependent: :destroy
 
-  #made in usa works, still testing mostreviewed and most recent
-
   scope :usa, -> { where(country_of_origin: "United States") }
 
-  # scope :mostreviewed, -> { order(self.reviews.length).reverse.first(1) }
+  # most reviewed scope is located below in the methods
 
   scope :mostrecent, -> { order(created_at: :desc).first(3) }
 
