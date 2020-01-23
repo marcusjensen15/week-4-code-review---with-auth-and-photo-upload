@@ -19,6 +19,8 @@ class ProductsController < ApplicationController
   def create
     # Code for creating a new album goes here
     @product = Product.new(product_params)
+    @product.product_photo.attach(params[:product][:product_photo])
+    #this product photo attach might break
     if @product.save
       flash[:notice] = "Product successfully added!"
 

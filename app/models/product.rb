@@ -1,5 +1,7 @@
 class Product < ApplicationRecord
   has_many :reviews, dependent: :destroy
+  has_one_attached :product_photo
+
 
   scope :usa, -> { where(country_of_origin: "United States") }
 
