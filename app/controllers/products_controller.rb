@@ -1,4 +1,6 @@
 class ProductsController < ApplicationController
+  before_action :authorize, only: [:new]
+
 
   def index
     # Code for listing all albums goes here.
